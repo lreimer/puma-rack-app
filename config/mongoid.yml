@@ -8,3 +8,13 @@ development:
         user: 'root'
         password: 'example'
         auth_source: admin
+production:
+  clients:
+    default:
+      database: puma_rack_app
+      hosts:
+        - mongo-db:27017
+      options:
+        user: 'root'
+        password: 'example'
+        auth_source: admin

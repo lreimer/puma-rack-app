@@ -13,6 +13,26 @@ end
 
 # Nested Rack Application for Users endpoints
 class App::Users < Rack::App
+  serializer do |obj|
+    if obj.is_a?(String)
+      obj
+    else
+      JSON.dump(obj)
+    end
+  end
+
+  payload do
+    parser do
+      accept :json, :www_form_urlencoded
+      reject_unsupported_media_types
+    end
+  end
+
+  error StandardError, NoMethodError do |ex|
+    response.status = 500
+    { error: ex.message }
+  end
+
   desc 'Get all Users'
   get '/api/users' do
     response.headers['Content-Type'] = 'application/json'

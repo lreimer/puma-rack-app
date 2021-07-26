@@ -18,14 +18,8 @@ class App < Rack::App
     end
   end
 
-  payload do
-    parser do
-      accept :json, :www_form_urlencoded
-      reject_unsupported_media_types
-    end
-  end
-
   error StandardError, NoMethodError do |ex|
+    response.status = 500
     { error: ex.message }
   end
 

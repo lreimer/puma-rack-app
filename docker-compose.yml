@@ -1,6 +1,15 @@
 version: '3.1'
 
 services:
+  puma-rack-app:
+    build: 
+      context: .
+    image: puma-rack-app:v1.0.0
+    ports:
+      - 9292:9292
+    environment: 
+      RACK_ENV: production
+
   mongo-db:
     image: mongo
     ports: 
