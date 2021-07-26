@@ -1,0 +1,13 @@
+{
+    "java.completion.enabled": false,
+    "java.debug.settings.enableRunDebugCodeLens": false,
+    "java.test.editor.enableShortcuts": false,
+    "ruby.useBundler": true, //run non-lint commands with bundle exec
+    "ruby.useLanguageServer": true, // use the internal language server (see below)
+    "ruby.lint": {
+        "rubocop": {
+            "useBundler": true // enable rubocop via bundler
+        }
+    },
+    "ruby.format": "rubocop" // use rubocop for formatting
+}

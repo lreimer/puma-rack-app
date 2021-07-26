@@ -1,0 +1,10 @@
+development:
+  clients:
+    default:
+      database: puma_rack_app
+      hosts:
+        - localhost:27017
+      options:
+        user: 'root'
+        password: 'example'
+        auth_source: admin
